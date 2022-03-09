@@ -11,7 +11,6 @@
         android:id="@+id/textSplash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nunitosans"
         android:text="ZWallet"
         style="@style/TextView.SplashScreen"
         app:layout_constraintBottom_toBottomOf="parent"
