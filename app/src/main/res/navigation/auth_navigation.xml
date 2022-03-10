@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.dhatuker.zwallet.ui.LoginFragment"
+        android:name="com.dhatuker.zwallet.ui.auth.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.dhatuker.zwallet.ui.RegisterFragment"
+        android:name="com.dhatuker.zwallet.ui.auth.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgotPassFragment"
-        android:name="com.dhatuker.zwallet.ui.ForgotPassFragment"
+        android:name="com.dhatuker.zwallet.ui.auth.ForgotPassFragment"
         android:label="fragment_forgot_pass"
         tools:layout="@layout/fragment_forgot_pass" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/resetPassword"
-        android:name="com.dhatuker.zwallet.ui.ResetPassword"
+        android:name="com.dhatuker.zwallet.ui.auth.ResetPassword"
         android:label="fragment_reset_password"
         tools:layout="@layout/fragment_reset_password" />
 </navigation>

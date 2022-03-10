@@ -1,4 +1,4 @@
-package com.dhatuker.zwallet.ui
+package com.dhatuker.zwallet.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

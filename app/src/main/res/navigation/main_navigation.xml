@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFragment2">
     <fragment
         android:id="@+id/homeFragment2"
-        android:name="com.dhatuker.zwallet.ui.HomeFragment"
+        android:name="com.dhatuker.zwallet.ui.main.HomeFragment"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment2_to_profileFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.dhatuker.zwallet.ui.ProfileFragment"
+        android:name="com.dhatuker.zwallet.ui.main.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
