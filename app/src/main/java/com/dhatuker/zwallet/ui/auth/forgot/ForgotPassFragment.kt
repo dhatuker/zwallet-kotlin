@@ -1,4 +1,4 @@
-package com.dhatuker.zwallet.ui.auth
+package com.dhatuker.zwallet.ui.auth.forgot
 
 import android.content.Intent
 import android.os.Bundle
@@ -24,7 +24,7 @@ class ForgotPassFragment : Fragment() {
         // Inflate the layout for this fragment
         return binding.root
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_forgot_pass, container, false)
+//        return inflater.inflate(R.layout.fragment_forgot_pass, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

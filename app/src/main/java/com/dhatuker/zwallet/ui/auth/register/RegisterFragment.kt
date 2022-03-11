@@ -1,4 +1,4 @@
-package com.dhatuker.zwallet.ui.auth
+package com.dhatuker.zwallet.ui.auth.register
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -13,6 +13,7 @@ import com.dhatuker.zwallet.databinding.FragmentRegisterBinding
 import com.dhatuker.zwallet.model.ApiResponse
 import com.dhatuker.zwallet.model.RegisterRequest
 import com.dhatuker.zwallet.network.NetworkConfig
+import com.dhatuker.zwallet.ui.auth.login.LoginFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

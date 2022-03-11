@@ -6,11 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.dhatuker.zwallet.R
 import com.dhatuker.zwallet.data.Transaction
+import com.dhatuker.zwallet.model.Invoice
+import com.dhatuker.zwallet.util.BASE_URL
 import com.google.android.material.imageview.ShapeableImageView
 
-class TransactionAdapter(private var data: List<Transaction>): RecyclerView.Adapter<TransactionAdapter.TransactionAdapterHolder>() {
+class TransactionAdapter(private var data: List<Invoice>): RecyclerView.Adapter<TransactionAdapter.TransactionAdapterHolder>() {
 
     lateinit var  contextAdapter:Context
 
@@ -20,12 +24,14 @@ class TransactionAdapter(private var data: List<Transaction>): RecyclerView.Adap
         private val type: TextView = view.findViewById(R.id.typeListTransaction)
         private val amount: TextView = view.findViewById(R.id.amountListTransaction)
 
-        fun bindData(data: Transaction, context: Context, position: Int){
-            name.text = data.transactionName
-            type.text = data.transactionType
-            amount.text = data.transactionNominal.toString()
-            image.setImageDrawable(data.transactionImage)
-
+        fun bindData(data: Invoice, context: Context, position: Int){
+            name.text = data.name
+            type.text = data.type
+            amount.text = data.amount.toString()
+            Glide.with(image)
+                .load(BASE_URL + data.image)
+                .apply(RequestOptions.circleCropTransform()
+                    .placeholder(R.drawable.img))
         }
     }
 
@@ -42,6 +48,10 @@ class TransactionAdapter(private var data: List<Transaction>): RecyclerView.Adap
 
     override fun getItemCount(): Int {
         return this.data.size
+    }
+
+    fun addData(data: List<Invoice>){
+        this.data = data
     }
 
 }

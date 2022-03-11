@@ -1,6 +1,5 @@
 package com.dhatuker.zwallet.model
 
-
 import com.google.gson.annotations.SerializedName
 
 data class User(

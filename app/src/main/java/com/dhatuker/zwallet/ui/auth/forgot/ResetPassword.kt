@@ -1,4 +1,4 @@
-package com.dhatuker.zwallet.ui.auth
+package com.dhatuker.zwallet.ui.auth.forgot
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
