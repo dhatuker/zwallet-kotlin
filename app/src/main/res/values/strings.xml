@@ -2,4 +2,6 @@
     <string name="app_name">ZWallet</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="detail_info_profile">We got your personal information from the sign up proccess. If you want to make changes on your information, contact our support.</string>
 </resources>
