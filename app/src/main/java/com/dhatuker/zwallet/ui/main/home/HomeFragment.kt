@@ -67,27 +67,43 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.getBalance().observe(viewLifecycleOwner) {
-            if (it.status == HttpsURLConnection.HTTP_OK) {
+            if (it.data?.status == HttpsURLConnection.HTTP_OK) {
                 binding.apply {
-                    balanceTotal.formatPrice(it.data?.get(0)?.balance.toString())
-                    phoneUser.text = it.data?.get(0)?.phone
-                    userName.text = it.data?.get(0)?.name
+                    balanceTotal.formatPrice(it.data?.data?.get(0)?.balance.toString())
+                    phoneUser.text = it.data?.data?.get(0)?.phone
+                    userName.text = it.data?.data?.get(0)?.name
                 }
             } else {
                 Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
             }
 
             viewModel.getInvoice().observe(viewLifecycleOwner) {
-                if (it.status == HttpsURLConnection.HTTP_OK) {
-                    this.transactionAdapter.apply {
-                        addData(it.data!!)
-                        notifyDataSetChanged()
+                when (it.state) {
+                    State.LOADING -> {
+                        binding.apply {
+                            loadingIndicator.visibility = View.VISIBLE
+                            recycleTransaction.visibility = View.GONE
+                        }
                     }
-                } else {
-                    Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                    State.SUCCESS -> {
+                        if (it.data?.status == HttpsURLConnection.HTTP_OK) {
+                            this.transactionAdapter.apply {
+                                addData(it.data?.data!!)
+                                notifyDataSetChanged()
+                            }
+                        } else {
+                            Toast.makeText(context, it.data?.message, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    else -> {
+                        binding.apply {
+                            loadingIndicator.visibility = View.GONE
+                            recycleTransaction.visibility = View.VISIBLE
+                        }
+                        Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
-
         }
     }
 }

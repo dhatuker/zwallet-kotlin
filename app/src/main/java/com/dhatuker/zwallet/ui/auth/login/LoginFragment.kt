@@ -18,6 +18,7 @@ import com.dhatuker.zwallet.R
 import com.dhatuker.zwallet.databinding.FragmentLoginBinding
 import com.dhatuker.zwallet.ui.main.MainActivity
 import com.dhatuker.zwallet.util.*
+import com.dhatuker.zwallet.widget.LoadingDialog
 import javax.net.ssl.HttpsURLConnection
 
 
@@ -26,6 +27,7 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private val viewModel: LoginViewModel by viewModelFactory { LoginViewModel(requireActivity().application)}
     private lateinit var preferences: SharedPreferences
+    private lateinit var loadingDialog: LoadingDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +36,7 @@ class LoginFragment : Fragment() {
 
         binding = FragmentLoginBinding.inflate(layoutInflater)
         preferences = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
+        loadingDialog = LoadingDialog(requireActivity())
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -54,24 +57,37 @@ class LoginFragment : Fragment() {
             )
 
             response.observe(viewLifecycleOwner) {
-                if (it.status == HttpsURLConnection.HTTP_OK){
-                    with(preferences.edit()) {
-                        putBoolean(KEY_LOGGED_IN, true)
-                        putString(KEY_USER_EMAIL, it.data?.email)
-                        putString(KEY_USER_TOKEN, it.data?.token)
-                        putString(KEY_USER_REFRESH_TOKEN, it.data?.refreshToken)
-                        apply()
+                when (it.state) {
+                    State.LOADING -> {
+                        loadingDialog.start("Processing your request")
                     }
-                    Handler().postDelayed({
-                        val intent = Intent(activity, MainActivity::class.java)
-                        startActivity(intent)
-                        activity?.finish()
-                    }, 2000)
-                } else {
-                    Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                    State.SUCCESS -> {
+                        loadingDialog.stop()
+                        if (it.data?.status == HttpsURLConnection.HTTP_OK){
+                            with(preferences.edit()) {
+                                putBoolean(KEY_LOGGED_IN, true)
+                                putString(KEY_USER_EMAIL, it.data.data?.email)
+                                putString(KEY_USER_TOKEN, it.data.data?.token)
+                                putString(KEY_USER_REFRESH_TOKEN, it.data.data?.refreshToken)
+                                apply()
+                            }
+                            Handler().postDelayed({
+                                val intent = Intent(activity, MainActivity::class.java)
+                                startActivity(intent)
+                                activity?.finish()
+                            }, 2000)
+                        } else {
+                            Toast.makeText(context, it.data?.message, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    State.ERROR -> {
+                        loadingDialog.stop()
+                        Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
-        }
+
+            }
 
         binding.textSignUp.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registerFragment)

@@ -7,10 +7,10 @@ data class BalanceRequest(
     val balance: Double?,
     @SerializedName("id")
     val id: Int?,
-    @SerializedName("image")
-    val image: String?,
     @SerializedName("name")
     val name: String?,
+    @SerializedName("image")
+    val image: String?,
     @SerializedName("phone")
     val phone: String?,
     @SerializedName("email")
