@@ -82,12 +82,12 @@ class LoginFragment : Fragment() {
                                 Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_createPinFragment)
                             }
                         } else {
-                            Toast.makeText(context, it.data?.message, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "${it.data?.message}", Toast.LENGTH_SHORT).show()
                         }
                     }
                     State.ERROR -> {
                         loadingDialog.stop()
-                        Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "${it.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

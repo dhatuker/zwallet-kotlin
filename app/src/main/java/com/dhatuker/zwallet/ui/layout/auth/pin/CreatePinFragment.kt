@@ -38,11 +38,13 @@ class CreatePinFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentCreatePinBinding.inflate(layoutInflater)
+        loadingDialog = LoadingDialog(requireActivity())
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         e1 = binding.editText1
         e2 = binding.editText2
         e3 = binding.editText3

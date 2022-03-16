@@ -30,7 +30,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -66,8 +66,8 @@ class HomeFragment : Fragment() {
             if (it.data?.status == HttpsURLConnection.HTTP_OK) {
                 binding.apply {
                     balanceTotal.formatPrice(it.data.data?.get(0)?.balance.toString())
-                    phoneUser.text = it.data?.data?.get(0)?.phone
-                    userName.text = it.data?.data?.get(0)?.name
+                    phoneUser.text = it.data.data?.get(0)?.phone
+                    userName.text = it.data.data?.get(0)?.name
                 }
             } else {
                 Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
@@ -92,7 +92,7 @@ class HomeFragment : Fragment() {
                                 notifyDataSetChanged()
                             }
                         } else {
-                            Toast.makeText(context, it.data?.message, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, it.data?.message.toString(), Toast.LENGTH_SHORT).show()
                         }
                     }
                     else -> {
