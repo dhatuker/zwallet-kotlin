@@ -6,15 +6,21 @@
     app:startDestination="@id/homeFragment2">
     <fragment
         android:id="@+id/homeFragment2"
-        android:name="com.dhatuker.zwallet.ui.main.home.HomeFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.home.HomeFragment"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment2_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_searchReceiverFragment"
+            app:destination="@id/searchReceiverFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_topupFragment"
+            app:destination="@id/topupFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.dhatuker.zwallet.ui.main.profile.ProfileFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -23,6 +29,15 @@
     </fragment>
     <fragment
         android:id="@+id/detailProfile"
-        android:name="com.dhatuker.zwallet.ui.main.profile.DetailProfile"
+        android:name="com.dhatuker.zwallet.ui.layout.main.profile.DetailProfile"
         android:label="DetailProfile" />
+    <fragment
+        android:id="@+id/searchReceiverFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.transfer.SearchReceiverFragment"
+        android:label="SearchReceiverFragment" />
+    <fragment
+        android:id="@+id/topupFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.topup.TopupFragment"
+        android:label="fragment_topup"
+        tools:layout="@layout/fragment_topup" />
 </navigation>

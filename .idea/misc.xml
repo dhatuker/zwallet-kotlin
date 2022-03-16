@@ -23,15 +23,31 @@
         <entry key="..\:/Kerja/BCA/zwallet-kotlin/app/src/main/res/layout/fragment_register.xml" value="0.18704710144927536" />
         <entry key="..\:/Kerja/BCA/zwallet-kotlin/app/src/main/res/layout/fragment_reset_password.xml" value="0.20863616930312098" />
         <entry key="..\:/Kerja/BCA/zwallet-kotlin/app/src/main/res/layout/fragment_topup.xml" value="0.264" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/drawable/background_button.xml" value="0.134" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/drawable/background_button_auth.xml" value="0.134" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/drawable/background_header.xml" value="0.134" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/drawable/background_image_item.xml" value="0.189" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/drawable/background_input.xml" value="0.134" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/drawable/background_item_transaction_home.xml" value="0.189" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/drawable/background_pin.xml" value="0.2" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/drawable/background_user_info.xml" value="0.1045" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.134" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/drawable/item_contact_transfer.xml" value="0.134" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/activity_main2.xml" value="0.1" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/activity_splash_screen.xml" value="0.22" />
-        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_detail_profile.xml" value="0.11354166666666667" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_create_pin.xml" value="0.25" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_detail_profile.xml" value="0.25" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_forgot_pass.xml" value="0.1" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_home.xml" value="0.10916919959473151" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_login.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_profile.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_register.xml" value="0.10916919959473151" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_reset_password.xml" value="0.1" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_search_receiver.xml" value="0.25" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_topup.xml" value="0.22" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/item_contact_trasnfer.xml" value="0.25" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/item_transaction_home.xml" value="0.33" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/loading_dialog.xml" value="0.22" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/splash_app.xml" value="0.1" />
@@ -39,7 +55,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/backgroundColor"
-    tools:context=".ui.main.profile.ProfileFragment">
+    tools:context=".ui.layout.main.profile.ProfileFragment">
 
     <TextView
         android:id="@+id/detailTitle"
@@ -75,10 +75,11 @@
                 android:textSize="16sp" />
 
             <TextView
+                android:id="@+id/firstNameTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="Dhatu"
+                android:text="Your"
                 android:textColor="@color/fontDark"
                 android:textSize="20sp" />
 
@@ -110,10 +111,11 @@
                 android:textSize="16sp" />
 
             <TextView
+                android:id="@+id/lastNameTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="Kertayuga"
+                android:text="Name"
                 android:textColor="@color/fontDark"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -142,6 +144,7 @@
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/emailTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -178,6 +181,7 @@
                 android:textSize="16sp" />
 
             <TextView
+                android:id="@+id/phoneTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"

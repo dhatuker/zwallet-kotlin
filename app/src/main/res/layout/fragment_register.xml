@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context=".ui.auth.register.RegisterFragment"
+    tools:context=".ui.layout.auth.register.RegisterFragment"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
