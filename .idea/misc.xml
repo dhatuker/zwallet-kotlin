@@ -37,12 +37,14 @@
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/activity_main2.xml" value="0.1" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/activity_splash_screen.xml" value="0.22" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_confirmation.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_create_pin.xml" value="0.14" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_detail_profile.xml" value="0.25" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_forgot_pass.xml" value="0.1" />
-        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_home.xml" value="0.10916919959473151" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_input_amount.xml" value="0.25" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_login.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_profile.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_register.xml" value="0.10916919959473151" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_reset_password.xml" value="0.1" />
         <entry key="..\:/Users/dhatu_kertayuga/Documents/zwallet/app/src/main/res/layout/fragment_search_receiver.xml" value="0.25" />
