@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/backgroundColor">
+    android:background="@color/backgroundColor"
+    tools:context=".ui.layout.main.transfer.TransferDetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/confirmLayout"
+        android:id="@+id/transferDetailLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_header"
@@ -18,79 +20,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:background="@color/bluePrimary"
-            android:src="@drawable/ic_baseline_arrow_back_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/textConfirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
-            android:text="Confirmation"
+            android:text="Transfer Details"
             android:textColor="@color/white"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@id/backButton"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/background_item_transaction_home"
-            android:orientation="horizontal"
-            android:padding="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textConfirm">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imageContact"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img"
-                app:shapeAppearanceOverlay="@style/RoundCorner"
-                tools:targetApi="n" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="15dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/nameContact"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:gravity="center"
-                    android:text="Dhatu Kertayuga"
-                    android:textColor="@color/fontDark"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/numberContact"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="+6212341234"
-                    android:textColor="@color/darkGrey"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-        </LinearLayout>
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/transferStatus"
+        style="@style/TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="40dp"
+        android:drawableTop="@drawable/ic_baseline_check_circle_24"
+        android:gravity="center"
+        android:text="Transfer Berhasil"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transferDetailLayout" />
 
     <LinearLayout
         android:id="@+id/amountBalanceLayer"
@@ -101,7 +55,7 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/confirmLayout">
+        app:layout_constraintTop_toBottomOf="@id/transferStatus">
 
         <LinearLayout
             android:id="@+id/totalAmount"
@@ -269,7 +223,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/notesTxt"
+            android:id="@+id/emailTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -278,18 +232,69 @@
             android:textSize="20sp" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/continueBtn"
+    <TextView
+        style="@style/TextView"
+        android:id="@+id/transferToText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transfer To"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/notesFrame"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continue"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="15dp"
-        android:layout_margin="16dp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/background_item_transaction_home"
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="15dp"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/background_button_auth_activated"/>
+        app:layout_constraintTop_toBottomOf="@id/transferToText">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageContact"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img"
+            app:shapeAppearanceOverlay="@style/RoundCorner"
+            tools:targetApi="n" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="Dhatu Kertayuga"
+                android:textColor="@color/fontDark"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/numberContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="+6212341234"
+                android:textColor="@color/darkGrey"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

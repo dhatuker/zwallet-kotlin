@@ -10,7 +10,6 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
-import com.dhatuker.zwallet.R
 import com.dhatuker.zwallet.databinding.FragmentCreatePinBinding
 import com.dhatuker.zwallet.ui.layout.auth.login.LoginViewModel
 import com.dhatuker.zwallet.ui.widget.LoadingDialog

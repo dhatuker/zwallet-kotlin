@@ -1,15 +1,9 @@
 package com.dhatuker.zwallet.data.api
 
 import com.dhatuker.zwallet.model.*
-import com.dhatuker.zwallet.model.request.LoginRequest
-import com.dhatuker.zwallet.model.request.PinRequest
-import com.dhatuker.zwallet.model.request.RefreshTokenRequest
-import com.dhatuker.zwallet.model.request.RegisterRequest
+import com.dhatuker.zwallet.model.request.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.PATCH
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ZWalletApi {
 
@@ -39,5 +33,8 @@ interface ZWalletApi {
 
     @PATCH("auth/PIN")
     suspend fun setPin(@Body request: PinRequest) : ApiResponse<String>
+
+    @POST("transfer/newTransfer")
+    suspend fun transfer(@Body transfer: TransferRequest, @Header("x-access-PIN") pin:String) : ApiTransferRequest<Transfer>
 
 }

@@ -115,6 +115,7 @@
         app:layout_constraintTop_toBottomOf="@id/inputAmount" />
 
     <EditText
+        android:id="@+id/noteInput"
         android:layout_width="343dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -124,5 +125,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/totalAmount" />
+
+    <Button
+        android:id="@+id/continueBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:textColor="@color/white"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="15dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/background_button_auth_activated"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

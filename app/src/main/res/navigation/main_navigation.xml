@@ -34,10 +34,43 @@
     <fragment
         android:id="@+id/searchReceiverFragment"
         android:name="com.dhatuker.zwallet.ui.layout.main.transfer.SearchReceiverFragment"
-        android:label="SearchReceiverFragment" />
+        android:label="SearchReceiverFragment" >
+        <action
+            android:id="@+id/action_searchReceiverFragment_to_inputAmountFragment"
+            app:destination="@id/inputAmountFragment" />
+    </fragment>
     <fragment
         android:id="@+id/topupFragment"
         android:name="com.dhatuker.zwallet.ui.layout.main.topup.TopupFragment"
         android:label="fragment_topup"
         tools:layout="@layout/fragment_topup" />
+    <fragment
+        android:id="@+id/inputAmountFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.transfer.InputAmountFragment"
+        android:label="InputAmountFragment" >
+        <action
+            android:id="@+id/action_inputAmountFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.transfer.ConfirmationFragment"
+        android:label="ConfirmationFragment" >
+        <action
+            android:id="@+id/action_confirmationFragment_to_confirmPinFragment"
+            app:destination="@id/confirmPinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmPinFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.transfer.ConfirmPinFragment"
+        android:label="ConfirmPinFragment" >
+        <action
+            android:id="@+id/action_confirmPinFragment_to_transferDetailFragment2"
+            app:destination="@id/transferDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferDetailFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.transfer.TransferDetailFragment"
+        android:label="transferDetailFragment"
+        tools:layout="@layout/fragment_trasnfer_detail" />
 </navigation>

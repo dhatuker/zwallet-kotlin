@@ -9,7 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dhatuker.zwallet.R
 import com.dhatuker.zwallet.ui.adapter.ContactAdapter
 import com.dhatuker.zwallet.databinding.FragmentSearchReceiverBinding
 import com.dhatuker.zwallet.ui.viewModelFactory
@@ -40,11 +42,19 @@ class SearchReceiverFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         prefs = context?.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)!!
 
+        this.contactAdapter = ContactAdapter(listOf()) { value, _ ->
+            viewModel.setSelectedContact(value)
+            Navigation.findNavController(view). navigate(R.id.action_searchReceiverFragment_to_inputAmountFragment)
+        }
+
+        binding.backButton.setOnClickListener {
+            Navigation.findNavController(view).popBackStack()
+        }
+
         prepareData()
     }
 
     fun prepareData() {
-        this.contactAdapter = ContactAdapter(listOf())
 
         binding.recycleSearch.apply {
             layoutManager = LinearLayoutManager(context)

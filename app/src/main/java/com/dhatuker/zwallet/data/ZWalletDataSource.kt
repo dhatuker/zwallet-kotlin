@@ -4,6 +4,7 @@ import androidx.lifecycle.liveData
 import com.dhatuker.zwallet.data.api.ZWalletApi
 import com.dhatuker.zwallet.model.request.LoginRequest
 import com.dhatuker.zwallet.model.request.PinRequest
+import com.dhatuker.zwallet.model.request.TransferRequest
 import com.dhatuker.zwallet.util.Resource
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
@@ -66,6 +67,16 @@ class ZWalletDataSource @Inject constructor(private val apiClient: ZWalletApi) {
         try {
             val value = PinRequest(pin)
             val response = apiClient.setPin(value)
+            emit(Resource.success(response))
+        } catch (e: Exception) {
+            emit(Resource.error(null, e.localizedMessage))
+        }
+    }
+
+    fun transfer(data : TransferRequest, pin: String) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        try {
+            val response = apiClient.transfer(data, pin)
             emit(Resource.success(response))
         } catch (e: Exception) {
             emit(Resource.error(null, e.localizedMessage))
