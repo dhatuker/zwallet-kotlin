@@ -1,5 +1,6 @@
 package com.dhatuker.zwallet.ui.layout.main.transfer
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,11 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dhatuker.zwallet.R
-import com.dhatuker.zwallet.databinding.FragmentConfirmationBinding
+import com.dhatuker.zwallet.databinding.FragmentTransferDetailSuccessBinding
+import com.dhatuker.zwallet.ui.layout.main.MainActivity
 import com.dhatuker.zwallet.util.BASE_URL
 import com.dhatuker.zwallet.util.Helper.formatPrice
 import com.dhatuker.zwallet.util.State
@@ -22,9 +23,9 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 
 @AndroidEntryPoint
-class ConfirmationFragment : Fragment() {
+class TransferDetailSuccessFragment : Fragment() {
 
-    private lateinit var binding :FragmentConfirmationBinding
+    private lateinit var binding : FragmentTransferDetailSuccessBinding
     private val viewModel : TransferViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -32,12 +33,18 @@ class ConfirmationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentConfirmationBinding.inflate(layoutInflater)
+        binding = FragmentTransferDetailSuccessBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.backBtn.setOnClickListener{
+            val intent = Intent(activity, MainActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
+        }
 
         viewModel.getSelectedContact().observe(viewLifecycleOwner) {
             binding.apply {
@@ -55,6 +62,7 @@ class ConfirmationFragment : Fragment() {
 
         viewModel.getTransferParameter().observe(viewLifecycleOwner) {
             binding.totalAmountText.formatPrice(it.amount.toString())
+
 
             if(it.notes.isNullOrEmpty()){
                 binding.notesTxt.text = "-"
@@ -88,15 +96,6 @@ class ConfirmationFragment : Fragment() {
                 }
             }
         }
-
-        binding.backButton.setOnClickListener {
-            Navigation.findNavController(view).popBackStack()
-        }
-
-        binding.continueBtn.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.action_confirmationFragment_to_confirmPinFragment)
-        }
-
     }
 
 }

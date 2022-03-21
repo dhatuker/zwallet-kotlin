@@ -34,7 +34,7 @@ interface ZWalletApi {
     @PATCH("auth/PIN")
     suspend fun setPin(@Body request: PinRequest) : ApiResponse<String>
 
-    @POST("transfer/newTransfer")
-    suspend fun transfer(@Body transfer: TransferRequest, @Header("x-access-PIN") pin:String) : ApiTransferRequest<Transfer>
+    @POST("tranfer/newTranfer")
+    suspend fun transfer(@Body transfer: TransferRequest, @Header("x-access-PIN") pin : String) : ApiTransferRequest<Transfer>
 
 }

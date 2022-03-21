@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import com.dhatuker.zwallet.databinding.FragmentDetailProfileBinding
 import com.dhatuker.zwallet.ui.layout.main.home.HomeViewModel
 import com.dhatuker.zwallet.ui.viewModelFactory
@@ -38,9 +39,14 @@ class DetailProfile : Fragment() {
                     phoneTxt.text = it.data?.data?.phone.toString()
                 }
             } else {
-                Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "${it.message}", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.backButton.setOnClickListener {
+            Navigation.findNavController(view).popBackStack()
+        }
+
     }
 
 }

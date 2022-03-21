@@ -18,6 +18,7 @@ class TransferViewModel @Inject constructor(private var dataSource : ZWalletData
 
     private var selectedContact = MutableLiveData<Contact>()
     private var transfer = MutableLiveData<TransferRequest>()
+    private var status : Int = 0
 
     fun getBalance(): LiveData<Resource<ApiResponse<List<Balance>>>> {
         return dataSource.getBalance()

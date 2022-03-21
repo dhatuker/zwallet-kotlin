@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/backgroundColor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/confirmPinLayout"
+        android:id="@+id/changePinLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_header"
@@ -29,45 +30,32 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textConfirm"
+            android:id="@+id/textChangePin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
-            android:text="Enter Your PIN"
+            android:text="Change PIN"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@id/backButton"
             app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/enterPinText"
-        style="@style/TextView.SplashScreen"
-        android:layout_width="match_parent"
+        android:id="@+id/textChangePinDesc"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="Enter PIN to Transfer"
+        android:paddingHorizontal="50dp"
+        android:layout_marginTop="40dp"
+        android:text= "Type your new 6 digits security PIN to use in Zwallet."
         android:textAlignment="center"
         android:textColor="@color/darkGrey"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/confirmPinLayout" />
-
-    <TextView
-        android:id="@+id/textPinDesc"
-        style="@style/TextView.SplashScreen.SplashScreenDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="60dp"
-        android:layout_marginTop="20dp"
-        android:text="Enter your 6 digits PIN for confirmation to continue transferring money."
-        android:textAlignment="center"
-        android:textColor="@color/darkGrey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/enterPinText" />
+        app:layout_constraintTop_toBottomOf="@id/changePinLayout"
+        />
 
     <LinearLayout
         android:id="@+id/pinLayout"
@@ -78,7 +66,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textPinDesc">
+        app:layout_constraintTop_toBottomOf="@id/textChangePinDesc">
 
         <EditText
             android:id="@+id/editText1"
@@ -149,19 +137,18 @@
 
     </LinearLayout>
 
-
     <Button
-        android:id="@+id/continueBtn"
+        android:id="@+id/changePinBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continue"
+        android:layout_margin="16dp"
+        android:background="@drawable/background_button_auth_activated"
         android:paddingHorizontal="24dp"
         android:paddingVertical="15dp"
-        android:layout_margin="16dp"
+        android:text="Change Pin"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/background_button_auth_activated"/>
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

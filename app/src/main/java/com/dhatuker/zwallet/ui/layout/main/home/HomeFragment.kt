@@ -1,6 +1,8 @@
 package com.dhatuker.zwallet.ui.layout.main.home
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dhatuker.zwallet.R
 import com.dhatuker.zwallet.ui.adapter.TransactionAdapter
 import com.dhatuker.zwallet.databinding.FragmentHomeBinding
+import com.dhatuker.zwallet.ui.layout.SplashScreenActivity
 import com.dhatuker.zwallet.util.*
 import com.dhatuker.zwallet.util.Helper.formatPrice
 import dagger.hilt.android.AndroidEntryPoint
@@ -69,8 +72,6 @@ class HomeFragment : Fragment() {
                     phoneUser.text = it.data.data?.get(0)?.phone
                     userName.text = it.data.data?.get(0)?.name
                 }
-            } else {
-                Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
             }
 
             viewModel.getInvoice().observe(viewLifecycleOwner) {
@@ -92,7 +93,19 @@ class HomeFragment : Fragment() {
                                 notifyDataSetChanged()
                             }
                         } else {
-                            Toast.makeText(context, it.data?.message.toString(), Toast.LENGTH_SHORT).show()
+                            with(prefs.edit()) {
+                                putBoolean(KEY_LOGGED_IN, false)
+                                apply()
+                            }
+                            AlertDialog.Builder(context)
+                                .setTitle("Your Session is Expired")
+                                .setMessage("Please login again.")
+                                .setPositiveButton("OK") { _, _ ->
+                                    val intent = Intent(activity, SplashScreenActivity::class.java)
+                                    startActivity(intent)
+                                    activity?.finish()
+                                }
+                                .show()
                         }
                     }
                     else -> {

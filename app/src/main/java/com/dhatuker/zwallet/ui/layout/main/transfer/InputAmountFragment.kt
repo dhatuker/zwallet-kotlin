@@ -13,6 +13,8 @@ import com.dhatuker.zwallet.R
 import com.dhatuker.zwallet.databinding.FragmentInputAmountBinding
 import com.dhatuker.zwallet.model.request.TransferRequest
 import com.dhatuker.zwallet.util.BASE_URL
+import com.dhatuker.zwallet.util.Helper.formatIDR
+import com.dhatuker.zwallet.util.State
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -55,6 +57,18 @@ class InputAmountFragment : Fragment() {
                 binding.noteInput.text.toString()
             ))
             Navigation.findNavController(view).navigate(R.id.action_inputAmountFragment_to_confirmationFragment)
+        }
+
+        viewModel.getBalance().observe(viewLifecycleOwner){
+            when (it.state) {
+                State.LOADING -> {
+                }
+                State.SUCCESS -> {
+                    binding.totalAmount.text = formatIDR(it.data?.data?.get(0)?.balance) + " Available"
+                }
+                State.ERROR -> {
+                }
+            }
         }
 
         binding.backButton.setOnClickListener {

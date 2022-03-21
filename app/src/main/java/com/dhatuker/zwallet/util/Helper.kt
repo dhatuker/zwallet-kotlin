@@ -8,7 +8,7 @@ object Helper {
         this.text = formatIDR(java.lang.Double.parseDouble(value))
     }
 
-    private fun formatIDR(price: Double): String {
+    fun formatIDR(price: Double?): String {
         val format = DecimalFormat("#,###,###")
         return "Rp" + format.format(price).replace(",".toRegex(),".")
     }

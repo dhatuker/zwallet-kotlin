@@ -26,6 +26,12 @@
         <action
             android:id="@+id/action_profileFragment_to_detailProfile"
             app:destination="@id/detailProfile" />
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_changePinFragment"
+            app:destination="@id/changePinFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailProfile"
@@ -65,12 +71,37 @@
         android:name="com.dhatuker.zwallet.ui.layout.main.transfer.ConfirmPinFragment"
         android:label="ConfirmPinFragment" >
         <action
-            android:id="@+id/action_confirmPinFragment_to_transferDetailFragment2"
-            app:destination="@id/transferDetailFragment" />
+            android:id="@+id/action_confirmPinFragment_to_transferDetailSuccessFragment"
+            app:destination="@id/transferDetailSuccessFragment" />
+        <action
+            android:id="@+id/action_confirmPinFragment_to_transferDetailFailedFragment"
+            app:destination="@id/transferDetailFailedFragment" />
     </fragment>
     <fragment
-        android:id="@+id/transferDetailFragment"
-        android:name="com.dhatuker.zwallet.ui.layout.main.transfer.TransferDetailFragment"
-        android:label="transferDetailFragment"
-        tools:layout="@layout/fragment_trasnfer_detail" />
+        android:id="@+id/transferDetailSuccessFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.transfer.TransferDetailSuccessFragment"
+        android:label="fragment_transfer_detail_success"
+        tools:layout="@layout/fragment_transfer_detail_success" />
+    <fragment
+        android:id="@+id/transferDetailFailedFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.transfer.TransferDetailFailedFragment"
+        android:label="TransferDetailFailedFragment" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.profile.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/changePinFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.profile.ChangePinFragment"
+        android:label="fragment_change_pin"
+        tools:layout="@layout/fragment_change_pin" >
+        <action
+            android:id="@+id/action_changePinFragment_to_continueChangePinFragment"
+            app:destination="@id/continueChangePinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/continueChangePinFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.profile.ContinueChangePinFragment"
+        android:label="ContinueChangePinFragment" />
 </navigation>
