@@ -2,9 +2,7 @@ package com.dhatuker.zwallet.data
 
 import androidx.lifecycle.liveData
 import com.dhatuker.zwallet.data.api.ZWalletApi
-import com.dhatuker.zwallet.model.request.LoginRequest
-import com.dhatuker.zwallet.model.request.PinRequest
-import com.dhatuker.zwallet.model.request.TransferRequest
+import com.dhatuker.zwallet.model.request.*
 import com.dhatuker.zwallet.util.Resource
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
@@ -16,6 +14,17 @@ class ZWalletDataSource @Inject constructor(private val apiClient: ZWalletApi) {
         try{
             val loginRequest = LoginRequest(email,password)
             val response = apiClient.login(loginRequest)
+            emit(Resource.success(response))
+        } catch (e: Exception){
+            emit(Resource.error(null, e.localizedMessage))
+        }
+    }
+
+    fun signup(username:String,email: String, password: String) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        try{
+            val value = RegisterRequest(username, email, password)
+            val response = apiClient.signup(value)
             emit(Resource.success(response))
         } catch (e: Exception){
             emit(Resource.error(null, e.localizedMessage))
@@ -73,10 +82,41 @@ class ZWalletDataSource @Inject constructor(private val apiClient: ZWalletApi) {
         }
     }
 
+    fun checkPin(pin:String) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        try {
+            val response = apiClient.checkPin(pin)
+            emit(Resource.success(response))
+        } catch (e: Exception) {
+            emit(Resource.error(null, e.localizedMessage))
+        }
+    }
+
     fun transfer(data : TransferRequest, pin: String) = liveData(Dispatchers.IO) {
         emit(Resource.loading(null))
         try {
             val response = apiClient.transfer(data, pin)
+            emit(Resource.success(response))
+        } catch (e: Exception) {
+            emit(Resource.error(null, e.localizedMessage))
+        }
+    }
+
+    fun changePassword(old: String, new : String) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        try {
+            val value = ChangePassword(old, new)
+            val response = apiClient.changePassword(value)
+            emit(Resource.success(response))
+        } catch (e: Exception) {
+            emit(Resource.error(null, e.localizedMessage))
+        }
+    }
+
+    fun activateOtp(email: String, otp:String) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        try {
+            val response = apiClient.activateOtp(email, otp)
             emit(Resource.success(response))
         } catch (e: Exception) {
             emit(Resource.error(null, e.localizedMessage))

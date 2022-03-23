@@ -9,6 +9,7 @@ import com.dhatuker.zwallet.model.ApiResponse
 import com.dhatuker.zwallet.model.Balance
 import com.dhatuker.zwallet.model.Invoice
 import com.dhatuker.zwallet.model.Profile
+import com.dhatuker.zwallet.model.request.ChangePassword
 import com.dhatuker.zwallet.network.NetworkConfig
 import com.dhatuker.zwallet.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -28,4 +29,18 @@ class HomeViewModel @Inject constructor(private var dataSource: ZWalletDataSourc
     fun getProfile(): LiveData<Resource<ApiResponse<Profile>>> {
         return dataSource.getProfile()
     }
+
+    fun changePassword(old : String, new : String): LiveData<Resource<ApiResponse<ChangePassword>>> {
+        return dataSource.changePassword(old, new)
+    }
+
+    fun setPin(pin: String) : LiveData<Resource<ApiResponse<String>>> {
+        return dataSource.setPin(pin)
+    }
+
+    fun checkPin(pin: String): LiveData<Resource<ApiResponse<String>>> {
+        return dataSource.checkPin(pin)
+    }
+
+
 }

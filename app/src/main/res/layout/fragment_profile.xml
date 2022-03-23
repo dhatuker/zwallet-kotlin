@@ -52,10 +52,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:drawableLeft="@drawable/arrowup"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
         android:text="Personal Information"
-        android:padding="10dp"
-        android:gravity="center"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:padding="15dp"
+        android:gravity="left"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/noUser" />
@@ -66,10 +68,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:padding="10dp"
-        android:gravity="center"
-        android:drawableLeft="@drawable/arrowup"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
         android:text="Change Password"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:padding="15dp"
+        android:gravity="left"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/personInfoBtn" />
@@ -80,27 +84,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:padding="10dp"
-        android:gravity="center"
-        android:drawableLeft="@drawable/arrowup"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
         android:text="Change PIN"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:padding="15dp"
+        android:gravity="left"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/changePassBtn" />
 
-    <ToggleButton
-        android:id="@+id/notifSlider"
-        style="@style/Button"
+    <LinearLayout
+        android:id="@+id/notifLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:drawableLeft="@drawable/arrowup"
-        android:text="Notification"
-        android:padding="10dp"
-        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/changePinBtn" />
+        app:layout_constraintTop_toBottomOf="@id/changePinBtn"
+        android:layout_margin="20dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
+        android:background="@color/white"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notification"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            style="@style/TextView"
+            android:textColor="@color/fontDark"/>
+
+        <ToggleButton
+            android:id="@+id/notifSlider"
+            style="@style/Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
+            android:text="Notification"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/logoutBtn"
@@ -108,13 +134,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:drawableLeft="@drawable/arrowup"
-        android:padding="10dp"
-        android:gravity="center"
-        android:text="Log Out"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:padding="15dp"
+        android:gravity="left"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/notifSlider" />
+        app:layout_constraintTop_toBottomOf="@id/notifLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

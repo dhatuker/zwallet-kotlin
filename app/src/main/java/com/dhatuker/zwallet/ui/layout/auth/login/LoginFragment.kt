@@ -65,15 +65,15 @@ class LoginFragment : Fragment() {
                     State.SUCCESS -> {
                         loadingDialog.stop()
                         if (it.data?.status == HttpsURLConnection.HTTP_OK){
-                            with(preferences.edit()) {
-                                putBoolean(KEY_LOGGED_IN, true)
-                                putString(KEY_USER_EMAIL, it.data.data?.email)
-                                putString(KEY_USER_TOKEN, it.data.data?.token)
-                                putString(KEY_USER_REFRESH_TOKEN, it.data.data?.refreshToken)
-                                apply()
-                            }
                             if(it.data.data?.hasPin!!){
                                 Handler().postDelayed({
+                                    with(preferences.edit()) {
+                                        putBoolean(KEY_LOGGED_IN, true)
+                                        putString(KEY_USER_EMAIL, it.data.data?.email)
+                                        putString(KEY_USER_TOKEN, it.data.data?.token)
+                                        putString(KEY_USER_REFRESH_TOKEN, it.data.data?.refreshToken)
+                                        apply()
+                                    }
                                     val intent = Intent(activity, MainActivity::class.java)
                                     startActivity(intent)
                                     activity?.finish()

@@ -11,7 +11,7 @@ interface ZWalletApi {
     suspend fun login(@Body request: LoginRequest) : ApiResponse<User>
 
     @POST("auth/signup")
-    fun signup(@Body request: RegisterRequest) : Call<ApiResponse<String>>
+    suspend fun signup(@Body request: RegisterRequest) : ApiResponse<RegisterRequest>
 
 //    @GET("user/myProfile")
 //    fun getProfile(@Body request: Profile) : Call<ApiResponse<String>>
@@ -34,7 +34,16 @@ interface ZWalletApi {
     @PATCH("auth/PIN")
     suspend fun setPin(@Body request: PinRequest) : ApiResponse<String>
 
+    @GET("auth/checkPIN/{pin}")
+    suspend fun checkPin(@Path("pin") pin: String) : ApiResponse<String>
+
     @POST("tranfer/newTranfer")
     suspend fun transfer(@Body transfer: TransferRequest, @Header("x-access-PIN") pin : String) : ApiTransferRequest<Transfer>
+
+    @PATCH("user/changePassword")
+    suspend fun  changePassword(@Body changePassword: ChangePassword) : ApiResponse<ChangePassword>
+
+    @GET("auth/activate/{email}/{otp}")
+    suspend fun activateOtp(@Path("email") email:String, @Path("otp") otp:String) : ApiResponse<String>
 
 }

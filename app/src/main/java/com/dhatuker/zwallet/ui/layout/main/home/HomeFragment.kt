@@ -66,13 +66,36 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.getBalance().observe(viewLifecycleOwner) {
-            if (it.data?.status == HttpsURLConnection.HTTP_OK) {
-                binding.apply {
-                    balanceTotal.formatPrice(it.data.data?.get(0)?.balance.toString())
-                    phoneUser.text = it.data.data?.get(0)?.phone
-                    userName.text = it.data.data?.get(0)?.name
+            when (it.state) {
+                State.LOADING -> {
+                }
+                State.SUCCESS -> {
+                    if (it.data?.status == HttpsURLConnection.HTTP_OK) {
+                        binding.apply {
+                            balanceTotal.formatPrice(it.data.data?.get(0)?.balance.toString())
+                            phoneUser.text = it.data.data?.get(0)?.phone
+                            userName.text = it.data.data?.get(0)?.name
+                        }
+                    } else {
+                        AlertDialog.Builder(context)
+                            .setTitle("Your Session is Expired")
+                            .setMessage("Please login again.")
+                            .setPositiveButton("OK") { _, _ ->
+                                with(prefs.edit()) {
+                                    putBoolean(KEY_LOGGED_IN, false)
+                                    apply()
+                                }
+                                val intent = Intent(activity, SplashScreenActivity::class.java)
+                                startActivity(intent)
+                                activity?.finish()
+                            }
+                            .show()
+                    }
+                }
+                State.ERROR -> {
                 }
             }
+
 
             viewModel.getInvoice().observe(viewLifecycleOwner) {
                 when (it.state) {
@@ -97,15 +120,6 @@ class HomeFragment : Fragment() {
                                 putBoolean(KEY_LOGGED_IN, false)
                                 apply()
                             }
-                            AlertDialog.Builder(context)
-                                .setTitle("Your Session is Expired")
-                                .setMessage("Please login again.")
-                                .setPositiveButton("OK") { _, _ ->
-                                    val intent = Intent(activity, SplashScreenActivity::class.java)
-                                    startActivity(intent)
-                                    activity?.finish()
-                                }
-                                .show()
                         }
                     }
                     else -> {

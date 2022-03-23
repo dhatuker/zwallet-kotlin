@@ -26,8 +26,8 @@
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
-            android:id="@+id/action_registerFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_registerFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPassFragment"
@@ -52,4 +52,8 @@
             android:id="@+id/action_createPinFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.auth.register.OtpFragment"
+        android:label="OtpFragment" />
 </navigation>

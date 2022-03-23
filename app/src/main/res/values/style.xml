@@ -23,7 +23,7 @@
     </style>
     <style name="Button">
         <item name="android:fontFamily">@font/nunitosans</item>
-        <item name="android:backgroundTint">@color/backgroundButtonColor</item>
+        <item name="android:backgroundTint">@color/white</item>
         <item name="android:textColor">@color/fontDark</item>
     </style>
     <style name="RoundCorner">
