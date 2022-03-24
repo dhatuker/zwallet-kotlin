@@ -20,10 +20,6 @@ class ManagePhoneFragment : Fragment() {
 
     private lateinit var binding : FragmentManagePhoneBinding
     private val viewModel : HomeViewModel by activityViewModels()
-    private lateinit var firstname : String
-    private lateinit var lastname : String
-    private lateinit var email : String
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,9 +42,6 @@ class ManagePhoneFragment : Fragment() {
                 }
                 State.SUCCESS -> {
                     if (it.data?.status == HttpsURLConnection.HTTP_OK) {
-                        firstname = it.data?.data?.firstname.toString()
-                        lastname = it.data?.data?.lastname.toString()
-                        email = it.data?.data?.email.toString()
 
                         binding.apply {
                             inputPhone.setText(it.data?.data?.phone.toString())
@@ -63,8 +56,6 @@ class ManagePhoneFragment : Fragment() {
 
         binding.confirmBtn.setOnClickListener {
 
-//            val username = (firstname + lastname).lowercase()
-            val username = lastname.lowercase()
 
             var phone = binding.inputPhone.text.toString()
             viewModel.changePhone(phone).observe(viewLifecycleOwner) {
