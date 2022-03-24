@@ -102,40 +102,27 @@ class ChangePinFragment : Fragment() {
                     binding.editText6.text.toString()
 
             viewModel.checkPin(pinText).observe(viewLifecycleOwner){
-                println()
-                println(it.toString())
-                println(it.state)
-                println("hehhauheuawheaw")
-                println()
 
-                if (it.data?.status == HttpsURLConnection.HTTP_OK) {
-                    Navigation.findNavController(view).navigate(R.id.action_changePinFragment_to_continueChangePinFragment)
-                } else {
-                    Toast.makeText(activity, "It's not your PIN", Toast.LENGTH_SHORT).show()
-                    Navigation.findNavController(view).popBackStack()
+                when (it.state) {
+                    State.LOADING -> {
+                        loadingDialog.start("Processing your request")
+                    }
+                    State.SUCCESS -> {
+                        loadingDialog.stop()
+                        if (it.data?.status == HttpsURLConnection.HTTP_OK) {
+                            Navigation.findNavController(view).navigate(R.id.action_changePinFragment_to_continueChangePinFragment)
+                        } else {
+                            Toast.makeText(activity, it.data?.message, Toast.LENGTH_SHORT).show()
+                            Navigation.findNavController(view).popBackStack()
+                        }                    }
+                    State.ERROR -> {
+                        loadingDialog.stop()
+                            Toast.makeText(activity, "Wrong PIN", Toast.LENGTH_SHORT).show()
+                        Navigation.findNavController(view).popBackStack()
+                    }
                 }
 
-//                when (it.state) {
-//                    State.LOADING -> {
-//                        loadingDialog.start("Processing your request")
-//                    }
-//                    State.SUCCESS -> {
-//                        loadingDialog.stop()
-//                        if (it.data?.status == HttpsURLConnection.HTTP_OK) {
-//                            Navigation.findNavController(view).navigate(R.id.action_changePinFragment_to_continueChangePinFragment)
-//                        } else {
-//                            Toast.makeText(activity, "It's not your PIN", Toast.LENGTH_SHORT).show()
-//                            Navigation.findNavController(view).popBackStack()
-//                        }                    }
-//                    State.ERROR -> {
-//                        loadingDialog.stop()
-//                        Toast.makeText(activity, "It's not your PIN", Toast.LENGTH_SHORT).show()
-//                    }
-//                }
             }
-
-            Navigation.findNavController(view).navigate(R.id.action_changePinFragment_to_continueChangePinFragment)
-
         }
 
         binding.backButton.setOnClickListener {
