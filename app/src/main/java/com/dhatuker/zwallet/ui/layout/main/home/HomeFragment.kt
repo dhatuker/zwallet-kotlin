@@ -93,19 +93,6 @@ class HomeFragment : Fragment() {
                     }
                 }
                 State.ERROR -> {
-                    AlertDialog.Builder(context)
-                        .setTitle("Your Session is Expired")
-                        .setMessage("Please login again.")
-                        .setPositiveButton("OK") { _, _ ->
-                            with(prefs.edit()) {
-                                putBoolean(KEY_LOGGED_IN, false)
-                                apply()
-                            }
-                            val intent = Intent(activity, SplashScreenActivity::class.java)
-                            startActivity(intent)
-                            activity?.finish()
-                        }
-                        .show()
                 }
             }
 

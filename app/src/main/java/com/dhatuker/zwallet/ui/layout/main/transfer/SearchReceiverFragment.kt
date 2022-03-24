@@ -26,6 +26,7 @@ class SearchReceiverFragment : Fragment() {
     private lateinit var binding : FragmentSearchReceiverBinding
     lateinit var contactAdapter : ContactAdapter
     private lateinit var prefs: SharedPreferences
+    private var item : Int = 0
     private val viewModel: TransferViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -71,13 +72,15 @@ class SearchReceiverFragment : Fragment() {
                     }
                     State.SUCCESS -> {
                         if (it.data?.status == HttpsURLConnection.HTTP_OK) {
+                            this.contactAdapter.apply {
+                                addData(it.data?.data!!)
+                                item = itemCount
+                                notifyDataSetChanged()
+                            }
                             binding.apply {
                                 loadingIndicator.visibility = View.GONE
                                 recycleSearch.visibility = View.VISIBLE
-                            }
-                            this.contactAdapter.apply {
-                                addData(it.data?.data!!)
-                                notifyDataSetChanged()
+                                contactAvaiable.text = item.toString() + " Contact Found"
                             }
                         } else {
                             Toast.makeText(context, it.data?.message, Toast.LENGTH_SHORT).show()

@@ -42,11 +42,9 @@ class ManagePhoneFragment : Fragment() {
                 }
                 State.SUCCESS -> {
                     if (it.data?.status == HttpsURLConnection.HTTP_OK) {
-
                         binding.apply {
                             inputPhone.setText(it.data?.data?.phone.toString())
                         }
-
                     }
                 }
                 State.ERROR -> {
