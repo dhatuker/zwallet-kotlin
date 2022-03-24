@@ -116,7 +116,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text="2"
                 android:textSize="18sp"
                 android:layout_gravity="center"
                 android:textColor="@color/bluePrimary"
@@ -127,7 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:textSize="16sp"
-                android:text="Go to the nearest ATM or you can use E-Banking."
+                android:text="Type your security number on the ATM or E-Banking."
                 />
 
         </LinearLayout>
@@ -147,7 +147,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text="3"
                 android:textSize="18sp"
                 android:layout_gravity="center"
                 android:textColor="@color/bluePrimary"
@@ -158,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:textSize="16sp"
-                android:text="Go to the nearest ATM or you can use E-Banking."
+                android:text="Select “Transfer” in the menu"
                 />
 
         </LinearLayout>
@@ -178,7 +178,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text="4"
                 android:textSize="18sp"
                 android:layout_gravity="center"
                 android:textColor="@color/bluePrimary"
@@ -189,7 +189,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:textSize="16sp"
-                android:text="Go to the nearest ATM or you can use E-Banking."
+                android:text="Type the virtual account number that we provide you at the top."
                 />
 
         </LinearLayout>
@@ -209,7 +209,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text="5"
                 android:textSize="18sp"
                 android:layout_gravity="center"
                 android:textColor="@color/bluePrimary"
@@ -220,7 +220,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:textSize="16sp"
-                android:text="Go to the nearest ATM or you can use E-Banking."
+                android:text="Type the amount of the money you want to top up."
                 />
 
         </LinearLayout>
@@ -240,7 +240,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text="6"
                 android:textSize="18sp"
                 android:layout_gravity="center"
                 android:textColor="@color/bluePrimary"
@@ -251,7 +251,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:textSize="16sp"
-                android:text="Go to the nearest ATM or you can use E-Banking."
+                android:text="Read the summary details"
                 />
 
         </LinearLayout>
@@ -271,7 +271,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text="7"
                 android:textSize="18sp"
                 android:layout_gravity="center"
                 android:textColor="@color/bluePrimary"
@@ -282,7 +282,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:textSize="16sp"
-                android:text="Go to the nearest ATM or you can use E-Banking."
+                android:text="Press transfer / top up"
                 />
 
         </LinearLayout>
@@ -304,7 +304,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="1"
+                android:text="8"
                 android:textColor="@color/bluePrimary"
                 android:textSize="18sp" />
 
@@ -312,7 +312,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:text="Go to the nearest ATM or you can use E-Banking."
+                android:text="You can see your money in Zwallet within 3 hours."
                 android:textSize="16sp" />
 
         </LinearLayout>

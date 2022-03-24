@@ -61,16 +61,12 @@
         android:id="@+id/nameLayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="horizontal"
-
         android:layout_marginTop="40dp"
-
+        android:layout_marginHorizontal="10dp"
         android:gravity="center"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toBottomOf="@id/detailInfo">
 
         <LinearLayout
@@ -80,7 +76,6 @@
             android:background="@drawable/background_item_transaction_home"
             android:orientation="vertical"
             android:padding="20dp"
-            android:layout_marginStart="10dp"
             android:layout_marginEnd="5dp"
             app:layout_constraintEnd_toStartOf="@id/lastName"
             app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +106,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginStart="5dp"
-            android:layout_marginEnd="10dp"
             android:background="@drawable/background_item_transaction_home"
             android:orientation="vertical"
             android:padding="20dp"

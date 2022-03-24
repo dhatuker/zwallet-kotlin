@@ -10,6 +10,7 @@ import com.dhatuker.zwallet.model.Balance
 import com.dhatuker.zwallet.model.Invoice
 import com.dhatuker.zwallet.model.Profile
 import com.dhatuker.zwallet.model.request.ChangePassword
+import com.dhatuker.zwallet.model.request.ChangePhoneRequest
 import com.dhatuker.zwallet.network.NetworkConfig
 import com.dhatuker.zwallet.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -40,6 +41,10 @@ class HomeViewModel @Inject constructor(private var dataSource: ZWalletDataSourc
 
     fun checkPin(pin: String): LiveData<Resource<ApiResponse<String>>> {
         return dataSource.checkPin(pin)
+    }
+
+    fun changePhone(phone : String): LiveData<Resource<ApiResponse<ChangePhoneRequest>>> {
+        return dataSource.changePhone(phone)
     }
 
 

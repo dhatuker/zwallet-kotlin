@@ -122,4 +122,15 @@ class ZWalletDataSource @Inject constructor(private val apiClient: ZWalletApi) {
             emit(Resource.error(null, e.localizedMessage))
         }
     }
+
+    fun changePhone(phone : String) = liveData(Dispatchers.IO) {
+        emit(Resource.loading(null))
+        try {
+            val value = ChangePhoneRequest(phone)
+            val response = apiClient.changePhone(value)
+            emit(Resource.success(response))
+        } catch (e: Exception) {
+            emit(Resource.error(null, e.localizedMessage))
+        }
+    }
 }

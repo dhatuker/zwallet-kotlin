@@ -36,7 +36,11 @@
     <fragment
         android:id="@+id/detailProfile"
         android:name="com.dhatuker.zwallet.ui.layout.main.profile.DetailProfile"
-        android:label="DetailProfile" />
+        android:label="DetailProfile" >
+        <action
+            android:id="@+id/action_detailProfile_to_managePhoneFragment"
+            app:destination="@id/managePhoneFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchReceiverFragment"
         android:name="com.dhatuker.zwallet.ui.layout.main.transfer.SearchReceiverFragment"
@@ -104,4 +108,8 @@
         android:id="@+id/continueChangePinFragment"
         android:name="com.dhatuker.zwallet.ui.layout.main.profile.ContinueChangePinFragment"
         android:label="ContinueChangePinFragment" />
+    <fragment
+        android:id="@+id/managePhoneFragment"
+        android:name="com.dhatuker.zwallet.ui.layout.main.profile.ManagePhoneFragment"
+        android:label="ManagePhoneFragment" />
 </navigation>
